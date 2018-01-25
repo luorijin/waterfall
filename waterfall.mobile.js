@@ -165,7 +165,7 @@
     WaterFall.defaultopts = {
         gapHeight: 20,
         gapWidth: 20,
-        col:5,
+        col:2,
         threshold: 100
     }
 
@@ -246,8 +246,7 @@
         // 显示 loading
         if (this._loader) {
             this._loader.style.display = 'block';
-            this._loader.style.top = (this.getMax() + 50) + 'px';
-            this._loader.style.left = '50%';
+            this._loader.style.top = (this.getMax() + 30) + 'px';
         }
 
         // 保证短时间内只触发一次
@@ -333,12 +332,13 @@
                 self._container.appendChild(fragment);
                 // 可以加载新的数据
                 load = false;
-                // 隐藏 loading
-                if (self._loader) {
-                    self._loader.style.display = 'none';
-                }
                 // 对新添加的 pins 设置位置
                 self.setPosition(self._newPins);
+                // 隐藏 loading
+                if (self._loader) {
+                    self._loader.style.display = 'block';
+            		self._loader.style.top = (self.getMax() + 20) + 'px';
+                }
                 clearTimeout(timer)
             } else {
                 setTimeout(checkAllHaveHeight)
